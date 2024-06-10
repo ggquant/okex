@@ -16,15 +16,11 @@ import (
 type Public struct {
 	*ClientWs
 	iCh    chan *public.Instruments
-	tCh    chan *public.Tickers
 	oiCh   chan *public.OpenInterest
-	cCh    chan *public.Candlesticks
-	trCh   chan *public.Trades
 	edepCh chan *public.EstimatedDeliveryExercisePrice
 	mpCh   chan *public.MarkPrice
 	mpcCh  chan *public.MarkPriceCandlesticks
 	plCh   chan *public.PriceLimit
-	obCh   chan *public.OrderBook
 	osCh   chan *public.OPTIONSummary
 	frCh   chan *public.FundingRate
 	icCh   chan *public.IndexCandlesticks
@@ -292,19 +288,6 @@ func (c *Public) Process(data []byte, e *events.Basic) bool {
 				c.StructuredEventChan <- e
 			}()
 			return true
-		case "tickers":
-			e := public.Tickers{}
-			err := json.Unmarshal(data, &e)
-			if err != nil {
-				return false
-			}
-			go func() {
-				if c.tCh != nil {
-					c.tCh <- &e
-				}
-				c.StructuredEventChan <- e
-			}()
-			return true
 		case "open-interest":
 			e := public.OpenInterest{}
 			err := json.Unmarshal(data, &e)
@@ -314,19 +297,6 @@ func (c *Public) Process(data []byte, e *events.Basic) bool {
 			go func() {
 				if c.oiCh != nil {
 					c.oiCh <- &e
-				}
-				c.StructuredEventChan <- e
-			}()
-			return true
-		case "trades":
-			e := public.Trades{}
-			err := json.Unmarshal(data, &e)
-			if err != nil {
-				return false
-			}
-			go func() {
-				if c.trCh != nil {
-					c.trCh <- &e
 				}
 				c.StructuredEventChan <- e
 			}()
@@ -438,36 +408,6 @@ func (c *Public) Process(data []byte, e *events.Basic) bool {
 				go func() {
 					if c.icCh != nil {
 						c.icCh <- &e
-					}
-					c.StructuredEventChan <- e
-				}()
-				return true
-			}
-			// candlestick channels
-			if strings.Contains(chName, "candle") {
-				e := public.Candlesticks{}
-				err := json.Unmarshal(data, &e)
-				if err != nil {
-					return false
-				}
-				go func() {
-					if c.cCh != nil {
-						c.cCh <- &e
-					}
-					c.StructuredEventChan <- e
-				}()
-				return true
-			}
-			// order book channels
-			if strings.Contains(chName, "books") {
-				e := public.OrderBook{}
-				err := json.Unmarshal(data, &e)
-				if err != nil {
-					return false
-				}
-				go func() {
-					if c.obCh != nil {
-						c.obCh <- &e
 					}
 					c.StructuredEventChan <- e
 				}()

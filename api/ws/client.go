@@ -38,7 +38,8 @@ type ClientWs struct {
 	mu                  map[bool]*sync.RWMutex
 	AuthRequested       *time.Time
 	Authorized          bool
-	Private             *Private
+	Private             *Account
+	Market              *Market
 	Public              *Public
 	Trade               *Trade
 	ctx                 context.Context
@@ -69,7 +70,8 @@ func NewClient(ctx context.Context, apiKey, secretKey, passphrase string, url ma
 		lastTransmit:        make(map[bool]*time.Time),
 		mu:                  map[bool]*sync.RWMutex{true: {}, false: {}},
 	}
-	c.Private = NewPrivate(c)
+	c.Private = NewAccount(c)
+	c.Market = NewMarket(c)
 	c.Public = NewPublic(c)
 	c.Trade = NewTrade(c)
 	return c

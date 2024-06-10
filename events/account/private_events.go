@@ -1,4 +1,4 @@
-package private
+package account
 
 import (
 	"github.com/amir-the-h/okex/events"

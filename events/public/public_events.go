@@ -11,21 +11,9 @@ type (
 		Arg         *events.Argument         `json:"arg"`
 		Instruments []*publicdata.Instrument `json:"data"`
 	}
-	Tickers struct {
-		Arg     *events.Argument `json:"arg"`
-		Tickers []*market.Ticker `json:"data"`
-	}
 	OpenInterest struct {
 		Arg           *events.Argument           `json:"arg"`
 		OpenInterests []*publicdata.OpenInterest `json:"data"`
-	}
-	Candlesticks struct {
-		Arg     *events.Argument `json:"arg"`
-		Candles []*market.Candle `json:"data"`
-	}
-	Trades struct {
-		Arg    *events.Argument `json:"arg"`
-		Trades []*market.Trade  `json:"data"`
 	}
 	EstimatedDeliveryExercisePrice struct {
 		Arg                             *events.Argument                             `json:"arg"`
@@ -42,12 +30,6 @@ type (
 	PriceLimit struct {
 		Arg   *events.Argument         `json:"arg"`
 		Limit []*publicdata.LimitPrice `json:"data"`
-	}
-	OrderBook struct {
-		Arg    *events.Argument      `json:"arg"`
-		InstID string                `json:"instId"`
-		Books  []*market.OrderBookWs `json:"data"`
-		Action string                `json:"action"`
 	}
 	OPTIONSummary struct {
 		Arg     *events.Argument               `json:"arg"`

@@ -1,8 +1,8 @@
 package copytrading
 
 import (
-	models "github.com/amir-the-h/okex/models/copytrading"
-	"github.com/amir-the-h/okex/responses"
+	models "github.com/ggquant/okex/models/copytrading"
+	"github.com/ggquant/okex/responses"
 )
 
 type (

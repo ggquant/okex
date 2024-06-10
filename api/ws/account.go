@@ -2,10 +2,10 @@ package ws
 
 import (
 	"encoding/json"
-	"github.com/amir-the-h/okex"
-	"github.com/amir-the-h/okex/events"
-	"github.com/amir-the-h/okex/events/account"
-	requests "github.com/amir-the-h/okex/requests/ws/private"
+	"github.com/ggquant/okex"
+	"github.com/ggquant/okex/events"
+	"github.com/ggquant/okex/events/account"
+	requests "github.com/ggquant/okex/requests/ws/private"
 )
 
 // Account

@@ -1,9 +1,9 @@
 package account
 
 import (
-	"github.com/amir-the-h/okex/events"
-	"github.com/amir-the-h/okex/models/account"
-	"github.com/amir-the-h/okex/models/trade"
+	"github.com/ggquant/okex/events"
+	"github.com/ggquant/okex/models/account"
+	"github.com/ggquant/okex/models/trade"
 )
 
 type (

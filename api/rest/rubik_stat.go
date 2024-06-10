@@ -2,9 +2,9 @@ package rest
 
 import (
 	"encoding/json"
-	"github.com/amir-the-h/okex"
-	requests "github.com/amir-the-h/okex/requests/rest/rubik_stat"
-	responses "github.com/amir-the-h/okex/responses/rubik_stat"
+	"github.com/ggquant/okex"
+	requests "github.com/ggquant/okex/requests/rest/rubik_stat"
+	responses "github.com/ggquant/okex/responses/rubik_stat"
 	"net/http"
 )
 

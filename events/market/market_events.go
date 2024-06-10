@@ -1,8 +1,8 @@
 package market
 
 import (
-	"github.com/amir-the-h/okex/events"
-	"github.com/amir-the-h/okex/models/market"
+	"github.com/ggquant/okex/events"
+	"github.com/ggquant/okex/models/market"
 )
 
 type (

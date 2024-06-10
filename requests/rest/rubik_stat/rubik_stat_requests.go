@@ -1,6 +1,6 @@
 package rubik_stat
 
-import "github.com/amir-the-h/okex"
+import "github.com/ggquant/okex"
 
 type (
 	GetTakerVolume struct {

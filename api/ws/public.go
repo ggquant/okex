@@ -25,6 +25,7 @@ type Public struct {
 	frCh   chan *public.FundingRate
 	icCh   chan *public.IndexCandlesticks
 	itCh   chan *public.IndexTickers
+	loCh   chan *public.LiquidationOrders
 }
 
 // NewPublic returns a pointer to a fresh Public
@@ -266,6 +267,30 @@ func (c *Public) UIndexTickers(req requests.IndexTickers, rCh ...bool) error {
 		c.itCh = nil
 	}
 	return c.Unsubscribe(false, []okex.ChannelName{"index-tickers"}, m)
+}
+
+// LiquidationOrders
+// Retrieve index tickers data
+//
+// https://www.okx.com/docs-v5/zh/#public-data-websocket-liquidation-orders-channel
+func (c *Public) LiquidationOrders(req requests.LiquidationOrders, ch ...chan *public.LiquidationOrders) error {
+	m := okex.S2M(req)
+	if len(ch) > 0 {
+		c.loCh = ch[0]
+	}
+	return c.Subscribe(false, []okex.ChannelName{"liquidation-orders"}, m)
+}
+
+// ULiquidationOrders
+// Retrieve index tickers data
+//
+// https://www.okx.com/docs-v5/zh/#public-data-websocket-liquidation-orders-channel
+func (c *Public) ULiquidationOrders(req requests.LiquidationOrders, rCh ...bool) error {
+	m := okex.S2M(req)
+	if len(rCh) > 0 && rCh[0] {
+		c.itCh = nil
+	}
+	return c.Unsubscribe(false, []okex.ChannelName{"liquidation-orders"}, m)
 }
 
 func (c *Public) Process(data []byte, e *events.Basic) bool {

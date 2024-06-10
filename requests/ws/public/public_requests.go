@@ -52,4 +52,8 @@ type (
 	IndexTickers struct {
 		InstID string `json:"instId"`
 	}
+	LiquidationOrders struct {
+		InstType string                    `json:"instType"`
+		Channel  okex.CandleStickWsBarSize `json:"channel"`
+	}
 )

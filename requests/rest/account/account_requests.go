@@ -3,6 +3,12 @@ package account
 import "github.com/amir-the-h/okex"
 
 type (
+	GetInstruments struct {
+		InstType   okex.InstrumentType `json:"instType"`
+		Uly        string              `json:"uly,omitempty"`
+		InstFamily string              `json:"instFamily,omitempty"`
+		InstID     string              `json:"instId,omitempty"`
+	}
 	GetBalance struct {
 		Ccy []string `json:"ccy,omitempty"`
 	}

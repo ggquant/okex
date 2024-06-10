@@ -24,7 +24,7 @@ func NewSubAccount(c *ClientRest) *SubAccount {
 // ViewList
 // applies to master accounts only
 //
-// https://www.okex.com/docs-v5/en/#rest-api-subaccount-view-sub-account-list
+// https://www.okx.com/docs-v5/zh/#sub-account-rest-api
 func (c *SubAccount) ViewList(req requests.ViewList) (response responses.ViewList, err error) {
 	p := "/api/v5/users/subaccount/list"
 	m := okex.S2M(req)

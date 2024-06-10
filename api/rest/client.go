@@ -23,7 +23,7 @@ type ClientRest struct {
 	Funding     *Funding
 	Market      *Market
 	PublicData  *PublicData
-	TradeData   *TradeData
+	RubikStat   *RubikStat
 	apiKey      string
 	secretKey   []byte
 	passphrase  string
@@ -48,7 +48,7 @@ func NewClient(apiKey, secretKey, passphrase string, baseURL okex.BaseURL, desti
 	c.Funding = NewFunding(c)
 	c.Market = NewMarket(c)
 	c.PublicData = NewPublicData(c)
-	c.TradeData = NewTradeData(c)
+	c.RubikStat = NewRubikStat(c)
 	return c
 }
 

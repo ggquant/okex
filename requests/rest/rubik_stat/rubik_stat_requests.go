@@ -1,4 +1,4 @@
-package tradedata
+package rubik_stat
 
 import "github.com/amir-the-h/okex"
 

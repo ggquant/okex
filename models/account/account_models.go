@@ -5,6 +5,29 @@ import (
 )
 
 type (
+	Instrument struct {
+		InstID    string               `json:"instId"`
+		Uly       string               `json:"uly,omitempty"`
+		BaseCcy   string               `json:"baseCcy,omitempty"`
+		QuoteCcy  string               `json:"quoteCcy,omitempty"`
+		SettleCcy string               `json:"settleCcy,omitempty"`
+		CtValCcy  string               `json:"ctValCcy,omitempty"`
+		CtVal     okex.JSONFloat64     `json:"ctVal,omitempty"`
+		CtMult    okex.JSONFloat64     `json:"ctMult,omitempty"`
+		Stk       okex.JSONFloat64     `json:"stk,omitempty"`
+		TickSz    okex.JSONFloat64     `json:"tickSz,omitempty"`
+		LotSz     okex.JSONFloat64     `json:"lotSz,omitempty"`
+		MinSz     okex.JSONFloat64     `json:"minSz,omitempty"`
+		Lever     okex.JSONFloat64     `json:"lever"`
+		InstType  okex.InstrumentType  `json:"instType"`
+		Category  okex.FeeCategory     `json:"category,string"`
+		OptType   okex.OptionType      `json:"optType,omitempty"`
+		ListTime  okex.JSONTime        `json:"listTime"`
+		ExpTime   okex.JSONTime        `json:"expTime,omitempty"`
+		CtType    okex.ContractType    `json:"ctType,omitempty"`
+		Alias     okex.AliasType       `json:"alias,omitempty"`
+		State     okex.InstrumentState `json:"state"`
+	}
 	Balance struct {
 		TotalEq     okex.JSONFloat64  `json:"totalEq"`
 		IsoEq       okex.JSONFloat64  `json:"isoEq"`

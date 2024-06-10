@@ -39,6 +39,7 @@ type (
 	InstrumentState      string
 	DeliveryExerciseType string
 	CandleStickWsBarSize string
+	SubPosType           string
 
 	Destination           int
 	BillType              uint8
@@ -297,6 +298,9 @@ const (
 	CandleStick5m  = CandleStickWsBarSize("candle5m")
 	CandleStick3m  = CandleStickWsBarSize("candle3m")
 	CandleStick1m  = CandleStickWsBarSize("candle1m")
+
+	Lead = SubPosType("lead")
+	Copy = SubPosType("copy")
 )
 
 func (t *JSONTime) String() string { return (time.Time)(*t).String() }

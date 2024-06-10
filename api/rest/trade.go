@@ -23,7 +23,7 @@ func NewTrade(c *ClientRest) *Trade {
 // PlaceOrder
 // You can place an order only if you have sufficient funds.
 //
-// https://www.okex.com/docs-v5/en/#rest-api-trade-get-positions
+// https://www.okx.com/docs-v5/en/#order-book-trading-trade
 func (c *Trade) PlaceOrder(req []requests.PlaceOrder) (response responses.PlaceOrder, err error) {
 	p := "/api/v5/trade/order"
 	var tmp interface{}

@@ -6,6 +6,10 @@ import (
 )
 
 type (
+	GetInstruments struct {
+		responses.Basic
+		Instruments []*models.Instrument `json:"data,omitempty"`
+	}
 	GetBalance struct {
 		responses.Basic
 		Balances []*models.Balance `json:"data,omitempty"`

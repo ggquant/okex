@@ -24,7 +24,7 @@ func NewFunding(c *ClientRest) *Funding {
 // GetCurrencies
 // Retrieve a list of all currencies. Not all currencies can be traded. Currencies that have not been defined in ISO 4217 may use a custom symbol.
 //
-// https://www.okex.com/docs-v5/en/#rest-api-funding-get-currencies
+// https://www.okx.com/docs-v5/en/#funding-account-rest-api
 func (c *Funding) GetCurrencies() (response responses.GetCurrencies, err error) {
 	p := "/api/v5/asset/currencies"
 

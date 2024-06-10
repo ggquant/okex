@@ -21,10 +21,27 @@ func NewAccount(c *ClientRest) *Account {
 	return &Account{c}
 }
 
+// GetInstruments
+// Retrieve a list of instruments with open contracts.
+//
+// https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-instruments
+func (c *Account) GetInstruments(req requests.GetInstruments) (response responses.GetInstruments, err error) {
+	p := "/api/v5/account/instruments"
+	m := okex.S2M(req)
+	res, err := c.client.Do(http.MethodGet, p, true, m)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+	d := json.NewDecoder(res.Body)
+	err = d.Decode(&response)
+	return
+}
+
 // GetBalance
 // Retrieve a list of assets (with non-zero balance), remaining balance, and available amount in the account.
 //
-// https://www.okex.com/docs-v5/en/#rest-api-account-get-balance
+// https://www.okx.com/docs-v5/en/#trading-account-rest-api-get-balance
 func (c *Account) GetBalance(req requests.GetBalance) (response responses.GetBalance, err error) {
 	p := "/api/v5/account/balance"
 	m := okex.S2M(req)

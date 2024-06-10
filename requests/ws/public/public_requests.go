@@ -6,17 +6,7 @@ type (
 	Instruments struct {
 		InstType okex.InstrumentType `json:"instType"`
 	}
-	Tickers struct {
-		InstID string `json:"instId"`
-	}
 	OpenInterest struct {
-		InstID string `json:"instId"`
-	}
-	Candlesticks struct {
-		InstID  string                    `json:"instId"`
-		Channel okex.CandleStickWsBarSize `json:"channel"`
-	}
-	Trades struct {
 		InstID string `json:"instId"`
 	}
 	EstimatedDeliveryExercisePrice struct {
@@ -33,10 +23,6 @@ type (
 	}
 	PriceLimit struct {
 		InstID string `json:"instId"`
-	}
-	OrderBook struct {
-		InstID  string `json:"instId"`
-		Channel string `json:"channel"`
 	}
 	OPTIONSummary struct {
 		InstID string `json:"instId"`

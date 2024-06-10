@@ -6,7 +6,7 @@ import (
 	"github.com/ggquant/okex"
 	"github.com/ggquant/okex/events"
 	"github.com/ggquant/okex/events/market"
-	requests "github.com/ggquant/okex/requests/ws/public"
+	requests "github.com/ggquant/okex/requests/ws/market"
 	"strings"
 )
 

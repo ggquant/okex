@@ -5,7 +5,7 @@ import (
 	"github.com/ggquant/okex"
 	"github.com/ggquant/okex/events"
 	"github.com/ggquant/okex/events/account"
-	requests "github.com/ggquant/okex/requests/ws/private"
+	requests "github.com/ggquant/okex/requests/ws/account"
 )
 
 // Account

@@ -28,6 +28,10 @@ func NewClient(ctx context.Context, apiKey, secretKey, passphrase string, destin
 		restURL = okex.DemoRestURL
 		wsPubURL = okex.DemoPublicWsURL
 		wsPriURL = okex.DemoPrivateWsURL
+	case okex.BusinessServer:
+		restURL = okex.BusinessRestURL
+		wsPubURL = okex.BusinessPublicWsURL
+		wsPriURL = okex.BusinessPrivateWsURL
 	}
 
 	r := rest.NewClient(apiKey, secretKey, passphrase, restURL, destination)

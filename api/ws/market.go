@@ -197,7 +197,6 @@ func (c *Market) Process(data []byte, e *events.Basic) bool {
 			chName := fmt.Sprint(ch)
 			// candlestick channels
 			if strings.Contains(chName, "candle") {
-				log.Printf("-------id: %v, arg: %v, args: %v, data: %v, ch: %v", e.ID, e.Arg, e.Args, e.Data, ch)
 				e := market.Candlesticks{}
 				err := json.Unmarshal(data, &e)
 				if err != nil {

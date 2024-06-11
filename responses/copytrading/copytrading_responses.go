@@ -10,4 +10,8 @@ type (
 		responses.Basic
 		SubPositions []*models.SubPosition `json:"data,omitempty"`
 	}
+	GetCurrentLeadTraders struct {
+		responses.Basic
+		SubPositions []*models.LeadTrader `json:"data,omitempty"`
+	}
 )

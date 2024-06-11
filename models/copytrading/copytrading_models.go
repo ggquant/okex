@@ -27,4 +27,18 @@ type (
 		Ccy         string            `json:"ccy"`
 		AvailSubPos string            `json:"availSubPos"`
 	}
+	LeadTrader struct {
+		PortLink           string           `json:"portLink"`
+		NickName           string           `json:"nickName"`
+		Margin             okex.JSONFloat64 `json:"margin"`
+		CopyTotalAmt       okex.JSONFloat64 `json:"copyTotalAmt"`
+		CopyTotalPnl       okex.JSONFloat64 `json:"copyTotalPnl"`
+		UniqueCode         string           `json:"uniqueCode"`
+		Ccy                string           `json:"ccy"`
+		ProfitSharingRatio okex.JSONFloat64 `json:"profitSharingRatio"`
+		BeginCopyTime      okex.JSONTime    `json:"beginCopyTime"`
+		Upl                okex.JSONFloat64 `json:"upl"`
+		TodayPnl           okex.JSONFloat64 `json:"todayPnl"`
+		LeadMode           okex.LeadMode    `json:"leadMode"`
+	}
 )

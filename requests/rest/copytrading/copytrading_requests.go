@@ -12,4 +12,7 @@ type (
 		Before     string              `json:"before,omitempty"`
 		Limit      string              `json:"limit,omitempty"`
 	}
+	GetCurrentLeadTraders struct {
+		InstType okex.InstrumentType `json:"instType"`
+	}
 )

@@ -40,6 +40,7 @@ type (
 	DeliveryExerciseType string
 	CandleStickWsBarSize string
 	SubPosType           string
+	LeadMode             string
 
 	Destination           int
 	BillType              uint8
@@ -306,6 +307,9 @@ const (
 
 	Lead = SubPosType("lead")
 	Copy = SubPosType("copy")
+
+	Public  = LeadMode("public")
+	Private = LeadMode("private")
 )
 
 func (t *JSONTime) String() string { return (time.Time)(*t).String() }

@@ -201,6 +201,7 @@ func (c *Market) Process(data []byte, e *events.Basic) bool {
 				e := market.Candlesticks{}
 				err := json.Unmarshal(data, &e)
 				if err != nil {
+					log.Printf("-------------%v", err)
 					return false
 				}
 				go func() {

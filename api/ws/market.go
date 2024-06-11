@@ -177,8 +177,22 @@ func (c *Market) Process(data []byte, e *events.Basic) bool {
 				c.StructuredEventChan <- e
 			}()
 			return true
+		case "books":
+			// books 400
+			e := market.OrderBook{}
+			err := json.Unmarshal(data, &e)
+			if err != nil {
+				return false
+			}
+			go func() {
+				if c.obCh != nil {
+					c.obCh <- &e
+				}
+				c.StructuredEventChan <- e
+			}()
+			return true
 		default:
-			log.Printf("-------id: %v, arg: %v, args: %v, data: %v", e.ID, e.Arg, e.Args, e.Data)
+			log.Printf("-------id: %v, arg: %v, args: %v, data: %v, ch: %v", e.ID, e.Arg, e.Args, e.Data, ch)
 			// special cases
 			// market price candlestick channel
 			chName := fmt.Sprint(ch)
@@ -196,9 +210,9 @@ func (c *Market) Process(data []byte, e *events.Basic) bool {
 					c.StructuredEventChan <- e
 				}()
 				return true
-			}
-			// order book channels
-			if strings.Contains(chName, "books") {
+			} else if strings.Contains(chName, "books") {
+				// order book channels
+				// books 500 or
 				e := market.OrderBook{}
 				err := json.Unmarshal(data, &e)
 				if err != nil {

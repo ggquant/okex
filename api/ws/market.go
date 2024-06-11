@@ -145,7 +145,6 @@ func (c *Market) UOrderBook(req requests.OrderBook, rCh ...bool) error {
 }
 
 func (c *Market) Process(data []byte, e *events.Basic) bool {
-	log.Printf("------- %v", e)
 	if e.Event == "" && e.Arg != nil && e.Data != nil && len(e.Data) > 0 {
 		ch, ok := e.Arg.Get("channel")
 		if !ok {
@@ -179,6 +178,7 @@ func (c *Market) Process(data []byte, e *events.Basic) bool {
 			}()
 			return true
 		default:
+			log.Printf("-------id: %v, arg: %v, args: %v, data: %v", e.ID, e.Arg, e.Args, e.Data)
 			// special cases
 			// market price candlestick channel
 			chName := fmt.Sprint(ch)

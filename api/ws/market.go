@@ -7,6 +7,7 @@ import (
 	"github.com/ggquant/okex/events"
 	"github.com/ggquant/okex/events/market"
 	requests "github.com/ggquant/okex/requests/ws/market"
+	"log"
 	"strings"
 )
 
@@ -144,6 +145,7 @@ func (c *Market) UOrderBook(req requests.OrderBook, rCh ...bool) error {
 }
 
 func (c *Market) Process(data []byte, e *events.Basic) bool {
+	log.Printf("------- %v", e)
 	if e.Event == "" && e.Arg != nil && e.Data != nil && len(e.Data) > 0 {
 		ch, ok := e.Arg.Get("channel")
 		if !ok {

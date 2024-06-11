@@ -394,10 +394,10 @@ func (c *ClientWs) process(data []byte, e *events.Basic) bool {
 	if c.Private.Process(data, e) {
 		return true
 	}
-	if c.Market.Process(data, e) {
+	if c.Public.Process(data, e) {
 		return true
 	}
-	if c.Public.Process(data, e) {
+	if c.Market.Process(data, e) {
 		return true
 	}
 	if e.ID != "" {

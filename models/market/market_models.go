@@ -187,10 +187,7 @@ func (c *Candle) UnmarshalJSON(buf []byte) error {
 		return err
 	}
 
-	c.VolCcyQuote, err = strconv.ParseFloat(volCcyQuote, 64)
-	if err != nil {
-		return err
-	}
+	c.VolCcyQuote, _ = strconv.ParseFloat(volCcyQuote, 64)
 
 	c.Confirm, err = strconv.Atoi(ts)
 	if err != nil {

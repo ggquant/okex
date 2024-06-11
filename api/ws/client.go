@@ -10,6 +10,7 @@ import (
 	"github.com/ggquant/okex"
 	"github.com/ggquant/okex/events"
 	"github.com/gorilla/websocket"
+	"log"
 	"net/http"
 	"sync"
 	"time"
@@ -365,6 +366,7 @@ func (c *ClientWs) process(data []byte, e *events.Basic) bool {
 		}()
 		return true
 	case "unsubscribe":
+		log.Printf("event: %v, arg: %v, args: %v", e.Event, e.Arg, e.Args)
 		e := events.Unsubscribe{}
 		_ = json.Unmarshal(data, &e)
 		go func() {
